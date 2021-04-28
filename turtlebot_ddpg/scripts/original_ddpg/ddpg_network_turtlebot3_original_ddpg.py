@@ -341,8 +341,8 @@ def main():
 			
 			# Minimal model to reach target: model-30-500.h5
 			# Optimal models: model-160-500.h5 & model-170-500.h5
-			actor_critic.actor_model.load_weights("/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/scripts/original_ddpg/actormodel-160-500.h5")
-			actor_critic.critic_model.load_weights("/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/scripts/original_ddpg/criticmodel-160-500.h5")
+			actor_critic.actor_model.load_weights("/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/scripts/original_ddpg/actormodel-160-500.h5")
+			actor_critic.critic_model.load_weights("/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/scripts/original_ddpg/criticmodel-160-500.h5")
 			print("models loaded")
 
 			#actor_critic.actor_model.load_weights("actormodel-160-500.h5")
