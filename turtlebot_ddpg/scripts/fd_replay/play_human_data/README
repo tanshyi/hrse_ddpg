@@ -7,7 +7,7 @@ Human player data collection process:
 
 1. Launch the TB3 in the Gazebo world
 
-$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
 
 2. Run following command first to prepare human player data collection process
 
@@ -24,7 +24,7 @@ Once done with the human player data collection, perform training by:
 
 1. Launch the TB3 in the Gazebo world
 
-$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
 
 2. Under ddpg_network_turtlebot3_amcl_fd_replay_human.py file,
 
@@ -41,7 +41,7 @@ Once training is done, test the model:
 
 1. Launch the TB3 in the Gazebo world
 
-$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
 
 2. Under ddpg_network_turtlebot3_amcl_fd_replay_human.py file,
 
