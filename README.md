@@ -26,8 +26,11 @@
 2. Follow the below instructions to uninstall and install numpy 
 
 	$ pip uninstall numpy
+	
 	$ pip show numpy
+	
 	$ pip uninstall numpy
+	
 	$ pip show numpy
 	
 	$ pip install numpy pyqtgraph
