@@ -45,6 +45,13 @@
 	Set state -> LaserScan setting to 24 samples instead of 360
 	
 		<gazebo reference = "base_scan">
-			......
-			<samples>24</samples>
+			<material>Gazebo/FlatBlack</material>
+			<sensor type="ray" name="lds_lfcd_sensor">
+			  <pose>0 0 0 0 0 0</pose>
+			  <visualize>$(arg laser_visual)</visualize>
+			  <update_rate>5</update_rate>
+			  <ray>
+			    <scan>
+			      <horizontal>
+			        <samples>24</samples>
 	
