@@ -23,7 +23,7 @@
 
 1. Go to https://emanual.robotis.com/docs/en/platform/turtlebot3/machine_learning and follow the steps to install Ananconda, ROS dependency packages, tensorflow and Keras
 
-2. Follow the below instructions to uninstall and install numpy 
+2. Follow the below commands to uninstall and install numpy 
 
 	$ pip uninstall numpy
 	
