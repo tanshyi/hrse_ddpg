@@ -53,7 +53,7 @@ Change the paths of actor_critic.actor_model.load_weights and actor_critic.criti
 
 Note:
 - Minimal model to reach target: model-30-500.h5
-- Optimal models: model-120-500.h5 & model-130-500.h5
+- Optimal models: model-30-500.h5
 
 4. Run following command to test the network based on the trained model
 
