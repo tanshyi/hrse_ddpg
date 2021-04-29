@@ -38,11 +38,13 @@
 
 4. Navigate to path: "~/catkin_ws/src/turtlebot3/turtlebot3_description/urdf". Under "turtlebot3_waffle_pi.gazebo.xacro" file, right click and open with gedit.
 
-Set visual for laser = true:
+	Set visual for laser = true:
 
-	<xacro:arg name="laser_visual"  default="true"/>
+		<xacro:arg name="laser_visual"  default="true"/>
 
-Set state -> LaserScan setting to 24 samples instead of 360:
-	<gazebo reference="base_scan">
-		......
-		<samples>24</samples>
+	Set state -> LaserScan setting to 24 samples instead of 360
+	
+		<gazebo reference = "base_scan">
+			......
+			<samples>24</samples>
+	
