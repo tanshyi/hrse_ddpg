@@ -1,8 +1,8 @@
 # hrse_ddpg
 
-###########################################################################################
-######################### Download and Install hrse_ddpg Package ##########################
-###########################################################################################
+#####################################################################################
+###################### Download and Install hrse_ddpg Package #######################
+#####################################################################################
 
 1. Change to the source space directory of the catkin workspace:
 
@@ -18,9 +18,9 @@ $ cd ~/catkin_ws && catkin_make
 
 4. Go to catkin_ws/src/hrse_ddpg/turtlebot_ddpg/scripts/original_ddpg and catkin_ws/src/hrse_ddpg/turtlebot_ddpg/scripts/fd_replay/play_human_data, and make all python files executable
 
-###########################################################################################
-################ Installation Steps to install dependencies for hrse_ddpg #################
-###########################################################################################
+####################################################################################
+########### Installation Steps to install dependencies for hrse_ddpg ###############
+####################################################################################
 
 1. Go to https://emanual.robotis.com/docs/en/platform/turtlebot3/machine_learning and follow the steps to install Ananconda, ROS dependency packages, tensorflow and Keras
 
@@ -30,7 +30,7 @@ $ cd ~/catkin_ws && catkin_make
 	$ pip show numpy
 	$ pip uninstall numpy
 	$ pip show numpy
-
+	
 	$ pip install numpy pyqtgraph
 
 3. install gym:
