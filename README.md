@@ -60,7 +60,26 @@
 	
 ########### Steps to Train Model ###############
 
+A. Original DDPG
+
+1. Change "train_indicator=1" under ddpg_network_turtlebot3_original_ddpg.py
+
+B. DDPG with human experiences
 
 
-########### Steps to Run Model ###############
+Change "train_indicator=1" under ddpg_network_turtlebot3_amcl_fd_replay_human.py
+
+
+########### Steps to Run Trained Model ###############
+
+A. Original DDPG
+
+1. Change "train_indicator=0" under ddpg_network_turtlebot3_original_ddpg.py
+
+B. DDPG with human experiences
+
+
+Change "train_indicator=0" under ddpg_network_turtlebot3_amcl_fd_replay_human.py
+
+
 
