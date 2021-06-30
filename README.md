@@ -58,7 +58,11 @@
 			      <horizontal>
 			        <samples>24</samples>
 
-################################################################################################################################
-############### Steps to Train Model and to Run Trained Model can be found in the individual packages themselves ###############
-################################################################################################################################
+
+***Note: Steps to Train Model and to Run Trained Model can be found in the README files under paths:
+/hrse_ddpg/turtlebot_ddpg/scripts/original_ddpg/			#For Original DDPG
+/hrse_ddpg/turtlebot_ddpg/scripts/fd_replay/play_human_data/		#For DDPG with Human Experiences
+
+
+
 
