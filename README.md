@@ -62,7 +62,14 @@
 
 A. Original DDPG
 
-1. Change "train_indicator=1" under ddpg_network_turtlebot3_original_ddpg.py
+1. 
+
+2. Change "train_indicator=1" under ddpg_network_turtlebot3_original_ddpg.py
+
+3. Type in new terminal:
+ 
+$ rosrun turtlebot_ddpg ddpg_network_turtlebot3_original_ddpg.py
+
 
 B. DDPG with human experiences
 
@@ -74,7 +81,16 @@ Change "train_indicator=1" under ddpg_network_turtlebot3_amcl_fd_replay_human.py
 
 A. Original DDPG
 
-1. Change "train_indicator=0" under ddpg_network_turtlebot3_original_ddpg.py
+1. Load TB3 Model in Gazebo Corridor World (rmb to change file path!)
+
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/turtlebot3_ddpg_collision_avoidance/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+
+2. Change "train_indicator=0" under ddpg_network_turtlebot3_original_ddpg.py
+
+3. Type in new terminal:
+ 
+$ rosrun turtlebot_ddpg ddpg_network_turtlebot3_original_ddpg.py
+
 
 B. DDPG with human experiences
 
