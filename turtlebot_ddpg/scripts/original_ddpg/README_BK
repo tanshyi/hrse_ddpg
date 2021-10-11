@@ -7,7 +7,7 @@ Perform training from scratch WITHOUT any human inputs by:
 
 1. Launch the TB3 in the Gazebo Corridor World (rmb to change file path to the correct one!)
 
-$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/ts/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
 
 2. Under ddpg_network_turtlebot3_original_ddpg.py file,
 
@@ -24,7 +24,7 @@ Once training is done, test the model:
 
 1. Launch the TB3 in the Gazebo Corridor World (rmb to change file path to the correct one!)
 
-$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/ts/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
+$ roslaunch turtlebot_ddpg turtlebot3_empty_world.launch world_file:='/home/nicho/catkin_ws/src/hrse_ddpg/turtlebot_ddpg/worlds/turtlebot3_modified_corridor2.world'
 
 2. Under ddpg_network_turtlebot3_original_ddpg.py file,
 
