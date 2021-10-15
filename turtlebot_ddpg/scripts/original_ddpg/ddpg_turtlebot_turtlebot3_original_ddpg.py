@@ -169,8 +169,8 @@ class GameState:
         self.target_y = (np.random.random()-0.5)*3
         random_turtlebot_y = (np.random.random())*5 #+ index_turtlebot_y'''
 
-	# Target position = 4m below origin
-	self.target_x = 4.0		#specific x coordinate
+        # Target position = 4m below origin
+        self.target_x = 4.0		#specific x coordinate
         self.target_y = 0.0		#specific y coordinate
         random_turtlebot_y = (np.random.random())*5 #+ index_turtlebot_y
 
@@ -211,8 +211,8 @@ class GameState:
             resp = set_state( state_msg )
             resp_target = set_state( state_target_msg )
 
-        except rospy.ServiceException, e:
-            print "Service call failed: %s" %e
+        except rospy.ServiceException as e:
+            print("Service call failed: %s" % e)
 
         initial_state = np.ones(self.state_num)
         #initial_state[self.state_num-2] = 0
@@ -294,7 +294,7 @@ class GameState:
 
 
         # prepare the normalized laser value and check if it is crash
-########################################################################################
+        ########################################################################################
         laser_msg = self.laser_ig.get_msg()
         laser_values = laser_msg.ranges
         #print('turtlebot laser_msg.ranges is %s', laser_msg.ranges)
@@ -302,23 +302,23 @@ class GameState:
 
         #normalized_laser = [(x)/3.5 for x in (laser_msg.ranges)]
 
-	normalized_laser = []
-	min_range = 0.13
-	done = False
+        normalized_laser = []
+        min_range = 0.13
+        done = False
 
-	for i in range(len(laser_msg.ranges)):
-		if laser_msg.ranges[i] == float('Inf'):
-			normalized_laser.append(3.5)
-		elif np.isnan(laser_msg.ranges[i]):
-			normalized_laser.append(0)
-		else:
-			normalized_laser.append(laser_msg.ranges[i])
+        for i in range(len(laser_msg.ranges)):
+            if laser_msg.ranges[i] == float('Inf'):
+                normalized_laser.append(3.5)
+            elif np.isnan(laser_msg.ranges[i]):
+                normalized_laser.append(0)
+            else:
+                normalized_laser.append(laser_msg.ranges[i])
 
-	if min_range > min(normalized_laser) > 0:
-		done = True
+        if min_range > min(normalized_laser) > 0:
+            done = True
 
         print('turtlebot normalized laser range is %s' %normalized_laser)
-########################################################################################
+        ########################################################################################
 
         # prepare state
         #state = np.append(normalized_laser, angle_diff)
@@ -331,7 +331,7 @@ class GameState:
         state = np.append(state, linear_x*0.26)
         state = np.append(state, angular_z)
         #print("angle_turtlebot and angle_diff are %s %s", angle_turtlebot*180/math.pi, angle_diff*180/math.pi)
-	#print("position x is %s position y is %s", turtlebot_x, turtlebot_y)
+	    #print("position x is %s position y is %s", turtlebot_x, turtlebot_y)
         #print("target position x is %s target position y is %s", self.target_x, self.target_y)
         #print("command angular is %s", angular_z)
         #print("command linear is %s", linear_x*0.26)
@@ -346,13 +346,13 @@ class GameState:
         turtlebot_y = self.position.y
         #distance_turtlebot_target_previous = math.sqrt((self.target_x - turtlebot_x_previous)**2 + (self.target_y - turtlebot_y_previous)**2)
 
-	#current_distance_from_origin = math.sqrt((turtlebot_x)**2 + (turtlebot_y)**2)
+	    #current_distance_from_origin = math.sqrt((turtlebot_x)**2 + (turtlebot_y)**2)
 
         distance_turtlebot_target = math.sqrt((self.target_x - turtlebot_x)**2 + (self.target_y - turtlebot_y)**2)
-	print("self.target_x is %s" %self.target_x)
-	print("self.target_y is %s" %self.target_y)
-	print("turtlebot_x is %s" %turtlebot_x)
-	print("turtlebot_y is %s" %turtlebot_y)
+        print("self.target_x is %s" %self.target_x)
+        print("self.target_y is %s" %self.target_y)
+        print("turtlebot_x is %s" %turtlebot_x)
+        print("turtlebot_y is %s" %turtlebot_y)
 
         distance_reward = 10.0 - abs(distance_turtlebot_target)
 
@@ -376,20 +376,18 @@ class GameState:
         self.arrive_reward = 0
         if distance_turtlebot_target<1:
             self.arrive_reward = 100
-	    print("REACHED TARGET!!!")
+            print("REACHED TARGET!!!")
             self.reset()
             time.sleep(1)
 
 
- 
-
         #reward  = distance_reward*(5/time_step)*1.2*7 + self.arrive_reward + self.collision_reward + self.angular_punish_reward + self.linear_punish_reward
-	reward  = distance_reward*10 + self.arrive_reward + self.collision_reward + self.angular_punish_reward + self.linear_punish_reward
+        reward  = distance_reward*10 + self.arrive_reward + self.collision_reward + self.angular_punish_reward + self.linear_punish_reward
         print("laser_reward is %s" %self.laser_reward)
         print("laser_crashed_reward is %s" %self.laser_crashed_reward)
         print("arrive_reward is %s" %self.arrive_reward)
         #print("distance reward is : %s", distance_reward*(5/time_step)*1.2*7)
-	print("distance reward is: %s" %(distance_reward*10))
+        print("distance reward is: %s" %(distance_reward*10))
 
 
         return reward, state, self.laser_crashed_value
