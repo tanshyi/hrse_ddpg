@@ -354,7 +354,7 @@ class GameState:
         print("turtlebot_x is %s" %turtlebot_x)
         print("turtlebot_y is %s" %turtlebot_y)
 
-        distance_reward = 10.0 - abs(distance_turtlebot_target)
+        distance_reward = 0.0 - abs(distance_turtlebot_target)
 
         self.laser_crashed_reward = self.turtlebot_is_crashed(laser_values, range_limit=0.25)
         self.laser_reward = sum(normalized_laser)-24

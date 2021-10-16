@@ -308,14 +308,16 @@ def main():
 				print("step_Q is %s" %Q_values[0][0])
 				sio.savemat('step_Q.mat',{'data':step_Q},True,'5', False, False,'row')
 
-				start_time = time.time()
-
+				
 				if (j % 5 == 0):
+					start_time = time.time()
+
 					actor_critic.train()
 					actor_critic.update_target()   
 
-				end_time = time.time()
-				print("train time is %s" %(end_time - start_time))
+					end_time = time.time()
+					print("train time is %s" %(end_time - start_time))
+					
 				
 				new_state = new_state.reshape((1, game_state.observation_space.shape[0]))
 
