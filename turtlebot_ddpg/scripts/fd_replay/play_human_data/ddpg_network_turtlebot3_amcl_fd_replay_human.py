@@ -341,7 +341,7 @@ def main():
 	########################################################
 	num_trials = 10000
 	trial_len  = 500
-	train_indicator = 0
+	train_indicator = 1
 
 	current_state = game_state.reset()
 	
