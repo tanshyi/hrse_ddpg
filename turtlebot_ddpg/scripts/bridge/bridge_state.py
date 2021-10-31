@@ -123,4 +123,4 @@ class StateBridge(object):
 
 
 if __name__ == '__main__':
-    StateBridge().run()
+    StateBridge().run(hz=50)

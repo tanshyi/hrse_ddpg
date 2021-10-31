@@ -3,6 +3,7 @@
 
 import time
 import json
+from datetime import datetime
 
 import rospy
 from std_msgs.msg import Float64MultiArray, String
@@ -51,7 +52,7 @@ class ActionBridge(object):
 
     
     def reset_world(self, target):
-        print('reset world')
+        print('reset world: ' + str(datetime.now()))
         self.set_vel(0.0, 0.0)
         time.sleep(0.1)
         self.set_vel(0.0, 0.0)
