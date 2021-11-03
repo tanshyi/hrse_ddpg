@@ -48,42 +48,46 @@ class ActionBridge(object):
     def command_callback(self, msg):
         cmd = json.loads(msg.data)
         if cmd['command'] == 'reset':
-            self.reset_world(target=(cmd['target_x'], cmd['target_y']))
+            robot = (cmd['robot']['x'], cmd['robot']['y']) if 'robot' in cmd else None
+            target = (cmd['target']['x'], cmd['target']['y']) if 'target' in cmd else None
+            self.reset_world(robot=robot, target=target)
 
     
-    def reset_world(self, target):
-        print('reset world: ' + str(datetime.now()))
+    def reset_world(self, robot=None, target=None):
+        print(str(datetime.now()) + ' reset world: robot-' + str(robot) + ' target-' + str(target))
         self.set_vel(0.0, 0.0)
         time.sleep(0.1)
         self.set_vel(0.0, 0.0)
 
-        try:
-            state_msg = ModelState()    
-            state_msg.model_name = 'turtlebot3_waffle_pi'
-            state_msg.pose.position.x = 0.0
-            state_msg.pose.position.y = 0.0
-            state_msg.pose.position.z = 0.0
-            state_msg.pose.orientation.x = 0
-            state_msg.pose.orientation.y = 0
-            state_msg.pose.orientation.z = 0
-            state_msg.pose.orientation.w = 1.0
-            self._svc_set_state(state_msg)
-        except rospy.ServiceException as e:
-            print("reset model failed: %s" % e)
+        if robot is not None:
+            try:
+                state_msg = ModelState()    
+                state_msg.model_name = 'turtlebot3_waffle_pi'
+                state_msg.pose.position.x = robot[0]
+                state_msg.pose.position.y = robot[1]
+                state_msg.pose.position.z = 0.0
+                state_msg.pose.orientation.x = 0
+                state_msg.pose.orientation.y = 0
+                state_msg.pose.orientation.z = 0
+                state_msg.pose.orientation.w = 1.0
+                self._svc_set_state(state_msg)
+            except rospy.ServiceException as e:
+                print("reset model failed: %s" % e)
 
-        try:
-            state_msg = ModelState()    
-            state_msg.model_name = 'unit_sphere_0_0'
-            state_msg.pose.position.x = target[0]
-            state_msg.pose.position.y = target[1]
-            state_msg.pose.position.z = 0.0
-            state_msg.pose.orientation.x = 0
-            state_msg.pose.orientation.y = 0
-            state_msg.pose.orientation.z = -0.2
-            state_msg.pose.orientation.w = 0
-            self._svc_set_state(state_msg)
-        except rospy.ServiceException as e:
-            print("reset target failed: %s" % e)
+        if target is not None:
+            try:
+                state_msg = ModelState()    
+                state_msg.model_name = 'unit_sphere_0_0'
+                state_msg.pose.position.x = target[0]
+                state_msg.pose.position.y = target[1]
+                state_msg.pose.position.z = 0.0
+                state_msg.pose.orientation.x = 0
+                state_msg.pose.orientation.y = 0
+                state_msg.pose.orientation.z = -0.2
+                state_msg.pose.orientation.w = 0
+                self._svc_set_state(state_msg)
+            except rospy.ServiceException as e:
+                print("reset target failed: %s" % e)
 
 
     def run(self, hz=100):
